@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slot Machine - Fruit Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header role="banner">
+      <div class="header-center">
+        <a href="index.html" class="logo" aria-label="Go to homepage">
+          <img
+            src="img/fruit-shop-logo.png"
+            class="logo-img"
+            alt="Fruit Shop Logo"
+          />
+          <span class="products-text"> View Products </span>
+        </a>
+        <nav role="navigation" aria-label="Main navigation">
+          <a
+            href="basket.html"
+            class="basket-link"
+            aria-label="View shopping basket"
+          >
+            <img
+              src="img/basket-icon.png"
+              class="basket-img"
+              alt="Shopping basket icon"
+            />
+            <span class="basket-text">View shopping basket</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" role="main">
+      <div class="content-box">
+        <div id="emojiDisplay" class="emoji-display" role="img" aria-live="polite">🎰</div>
+        <h1>Slot Machine</h1>
+        <div class="product-desc" aria-label="Slot description">
+          Spin the slot machine to get a random fruit added to your basket.
+        </div>
+        <div class="button-container">
+          <button
+            id="addToBasket"
+            class="cart-action-btn"
+            aria-label="Spin slot machine and add random fruit to basket"
+          >
+            Add to Basket
+          </button>
+        </div>
+        <div id="slotMsg" role="status" aria-live="polite" style="margin-top:12px"></div>
+      </div>
+    </main>
+    <footer>
+      <a
+        href="https://www.linkedin.com/in/timlolkema/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        By Tim Lolkema
+      </a>
+    </footer>
+    <script src="shop.js"></script>
+    <script>
+      function spinAndAdd() {
+        const btn = document.getElementById("addToBasket");
+        const display = document.getElementById("emojiDisplay");
+        const msg = document.getElementById("slotMsg");
+        const products = window.PRODUCTS || {};
+        const keys = Object.keys(products);
+        if (keys.length === 0) {
+          msg.textContent = "No products available to spin.";
+          return;
+        }
+        btn.disabled = true;
+        msg.textContent = "Spinning...";
+        // quick visual spin
+        const interval = setInterval(() => {
+          const k = keys[Math.floor(Math.random() * keys.length)];
+          display.textContent = products[k].emoji;
+        }, 90);
+        // stop after a moment and pick final
+        setTimeout(() => {
+          clearInterval(interval);
+          const finalKey = keys[Math.floor(Math.random() * keys.length)];
+          display.textContent = products[finalKey].emoji;
+          msg.textContent = `Added ${products[finalKey].name} to basket.`;
+          addToBasket(finalKey);
+          btn.textContent = "Added!";
+          setTimeout(() => {
+            btn.textContent = "Add to Basket";
+            btn.disabled = false;
+            msg.textContent = "";
+          }, 1000);
+        }, 1600);
+      }
+
+      document.getElementById("addToBasket").onclick = function () {
+        spinAndAdd();
+      };
+    </script>
+  </body>
+</html>
