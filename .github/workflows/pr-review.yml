@@ -14,7 +14,7 @@ jobs:
       run: |
         response=$(curl -s -X POST \
           -H "Content-Type: application/json" \
-          "https://ai-mastra-agent-workshop.vercel.app/api/workflows/prWorkflow/create-run")
+          "https://vercel.com/new/lorrie-s-projects/success?auto-redirect=true&developer-id=&external-id=&redirect-url=&branch=main&deploymentUrl=ai-mastra-agent-workshop-i4b1bcfb5-lorrie-s-projects.vercel.app&projectName=ai-mastra-agent-workshop&s=https%3A%2F%2Fgithub.com%2FLFSDN17%2Fai-mastra-agent-workshop&gitOrgLimit=&hasTrialAvailable=1&totalProjects=1&flow-id=UskJksVZrqqVn_SS_YgQD")
         
         echo "Create run response: $response"
         
@@ -52,7 +52,7 @@ jobs:
         response=$(curl -s -X POST \
           -H "Content-Type: application/json" \
           -d "$payload" \
-          "https://ai-mastra-agent-workshop.vercel.app/api/workflows/prWorkflow/start-async?runId=$runId")
+          "https://vercel.com/new/lorrie-s-projects/success?auto-redirect=true&developer-id=&external-id=&redirect-url=&branch=main&deploymentUrl=ai-mastra-agent-workshop-i4b1bcfb5-lorrie-s-projects.vercel.app&projectName=ai-mastra-agent-workshop&s=https%3A%2F%2Fgithub.com%2FLFSDN17%2Fai-mastra-agent-workshop&gitOrgLimit=&hasTrialAvailable=1&totalProjects=1&flow-id=UskJksVZrqqVn_SS_YgQD")
         
         echo "Start workflow response: $response"
         
