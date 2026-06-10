@@ -84,3 +84,6 @@ window.clearBasket = function () {
   origClearBasket();
   renderBasketIndicator();
 };
+
+// Expose PRODUCTS to other pages (e.g. slot machine) for emoji and keys
+window.PRODUCTS = PRODUCTS;
