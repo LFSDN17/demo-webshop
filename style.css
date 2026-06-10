@@ -353,3 +353,57 @@ footer a {
   color: green;
   margin-top: 1rem;
 }
+
+/* Request modal and floating button */
+.request-floating-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 30px;
+  padding: 0.8rem 1rem;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 119, 255, 0.18);
+}
+
+.request-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10000;
+}
+.request-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.request-modal-panel {
+  position: relative;
+  max-width: 520px;
+  margin: 6vh auto;
+  background: #fff;
+  padding: 1.4rem 1.6rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.22);
+}
+.requested-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 6px;
+}
+.requested-note {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #b71c1c;
+}
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-actions button {
+  margin-left: 8px;
+  padding: 0.4rem 0.7rem;
+}
